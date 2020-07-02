@@ -896,6 +896,24 @@ PHP_FUNCTION(ncurses_attrset)
 }
 /* }}} */
 
+/* {{{ proto int ncurses_wbkgd(resourse window, int attrchar)
+   Sets background property for terminal screen */
+PHP_FUNCTION(ncurses_wbkgd)
+{
+        zend_long intarg;
+        WINDOW **win;
+        zval *handle;
+
+        if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "rl", &handle, &intarg) == FAILURE) {
+                return;
+        }
+        IS_NCURSES_INITIALIZED();
+        FETCH_WINRES(win, &handle);
+   
+        RETURN_LONG(wbkgd(*win, COLOR_PAIR(intarg)));
+}
+/* }}} */
+
 /* {{{ proto int ncurses_bkgd(int attrchar)
    Sets background property for terminal screen */
 PHP_FUNCTION(ncurses_bkgd)
@@ -906,7 +924,8 @@ PHP_FUNCTION(ncurses_bkgd)
 		return;
 	}
 	IS_NCURSES_INITIALIZED();
-	RETURN_LONG(bkgd(intarg));
+        
+	RETURN_LONG(bkgd(COLOR_PAIR(intarg)));
 }
 /* }}} */
 
@@ -1180,6 +1199,24 @@ PHP_FUNCTION(ncurses_use_extended_names)
 /* }}} */
 #endif  
 
+/* {{{ proto void ncurses_wbkgdset(resource window, int attrchar)
+   Controls screen background of window */
+PHP_FUNCTION(ncurses_wbkgdset)
+{
+        zend_long intarg;
+        WINDOW **win;
+        zval *handle;
+
+        if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "rl", &handle, &intarg) == FAILURE) {
+                return;
+        }
+        IS_NCURSES_INITIALIZED();
+        FETCH_WINRES(win, &handle);
+
+        wbkgdset(*win, COLOR_PAIR(intarg));
+}
+/* }}} */
+
 /* {{{ proto void ncurses_bkgdset(int attrchar)
    Controls screen background */
 PHP_FUNCTION(ncurses_bkgdset)
@@ -1190,7 +1227,8 @@ PHP_FUNCTION(ncurses_bkgdset)
 		return;
 	}
 	IS_NCURSES_INITIALIZED();
-	bkgdset(intarg);
+
+	bkgdset(COLOR_PAIR(intarg));
 }
 /* }}} */
 

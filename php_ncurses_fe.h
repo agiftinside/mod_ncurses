@@ -83,6 +83,8 @@ PHP_FUNCTION(ncurses_attroff);
 PHP_FUNCTION(ncurses_attron);
 PHP_FUNCTION(ncurses_attrset);
 PHP_FUNCTION(ncurses_bkgd);
+PHP_FUNCTION(ncurses_wbkgd);
+PHP_FUNCTION(ncurses_wbkgdset);
 PHP_FUNCTION(ncurses_curs_set);
 PHP_FUNCTION(ncurses_delay_output);
 PHP_FUNCTION(ncurses_echochar);

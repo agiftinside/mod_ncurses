@@ -135,6 +135,8 @@ zend_function_entry ncurses_functions[] = {
 	PHP_FE(ncurses_attron,			NULL)
 	PHP_FE(ncurses_attrset,			NULL)
 	PHP_FE(ncurses_bkgd,			NULL)
+	PHP_FE(ncurses_wbkgd,           NULL)
+	PHP_FE(ncurses_wbkgdset,        NULL)
 	PHP_FE(ncurses_curs_set,		NULL)
 	PHP_FE(ncurses_delay_output,		NULL)
 	PHP_FE(ncurses_echochar,		NULL)
