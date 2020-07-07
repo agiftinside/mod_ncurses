@@ -15,3 +15,6 @@ to provide support for the upper version of PHP___.
 ## Version release
 
 There is no version release. Take a look at the commit log and download the latest revision of master.
+
+Newest release supports working `ncurses_bkgd` and `ncurses_wbkgd` methods.
+If there is anything broken or missing features, please create a new issue for them to be updated.
